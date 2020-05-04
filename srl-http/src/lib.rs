@@ -3,19 +3,19 @@ use std::collections::HashMap;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Entrant {
-    displayname: String,
-    place: i32,
-    time: i32,
-    message: Option<String>,
-    statetext: String,
-    twitch: String,
-    trueskill: String,
+    pub displayname: String,
+    pub place: i32,
+    pub time: i32,
+    pub message: Option<String>,
+    pub statetext: String,
+    pub twitch: String,
+    pub trueskill: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Entrants {
-    count: String,
-    entrants: HashMap<String, Entrant>,
+    pub count: String,
+    pub entrants: HashMap<String, Entrant>,
 }
 
 pub async fn entrants(url: &str, raceid: &str) -> reqwest::Result<Entrants> {
@@ -29,36 +29,36 @@ pub async fn entrants(url: &str, raceid: &str) -> reqwest::Result<Entrants> {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Races {
-    count: String,
-    races: Vec<Race>,
+    pub count: String,
+    pub races: Vec<Race>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Race {
-    id: String,
-    game: Game,
-    goal: String,
-    time: i32,
-    state: i32,
-    statetext: String,
-    filename: String,
-    numentrants: i32,
-    entrants: HashMap<String, Entrant>,
+    pub id: String,
+    pub game: Game,
+    pub goal: String,
+    pub time: i32,
+    pub state: i32,
+    pub statetext: String,
+    pub filename: String,
+    pub numentrants: i32,
+    pub entrants: HashMap<String, Entrant>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Game {
-    id: i32,
-    name: String,
-    abbrev: String,
-    popularity: f32,
-    popularityrank: i32,
+    pub id: i32,
+    pub name: String,
+    pub abbrev: String,
+    pub popularity: f32,
+    pub popularityrank: i32,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Games {
-    count: String,
-    games: Vec<Game>,
+    pub count: String,
+    pub games: Vec<Game>,
 }
 
 
@@ -113,29 +113,29 @@ pub async fn game(url: &str, raceid: &str) -> reqwest::Result<Game> {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Goal {
-    name: String,
-    toptimes: Vec<TopTime>,
+    pub name: String,
+    pub toptimes: Vec<TopTime>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Goals {
-    game: Game,
-    goals: Vec<Goal>,
+    pub game: Game,
+    pub goals: Vec<Goal>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TopTime {
-    race: i32,
-    place: i32,
-    player: String,
-    time: i32,
-    message: String,
-    oldtrueskill: i32,
-    newtrueskill: i32,
-    trueskillchange: i32,
-    oldseasontrueskill: i32,
-    newseasontrueskill: i32,
-    seasontrueskillchange: i32,
+    pub race: i32,
+    pub place: i32,
+    pub player: String,
+    pub time: i32,
+    pub message: String,
+    pub oldtrueskill: i32,
+    pub newtrueskill: i32,
+    pub trueskillchange: i32,
+    pub oldseasontrueskill: i32,
+    pub newseasontrueskill: i32,
+    pub seasontrueskillchange: i32,
 }
 
 pub async fn goals(url: &str, abbrev: &str) -> reqwest::Result<Goals> {
@@ -149,13 +149,13 @@ pub async fn goals(url: &str, abbrev: &str) -> reqwest::Result<Goals> {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Player {
-    id: i32,
-    name: String,
-    channel: String,
-    api: String,
-    twitter: String,
-    youtube: String,
-    country: String,
+    pub id: i32,
+    pub name: String,
+    pub channel: String,
+    pub api: String,
+    pub twitter: String,
+    pub youtube: String,
+    pub country: String,
 }
 
 pub async fn player(url: &str, playerid: &str) -> reqwest::Result<Player> {
